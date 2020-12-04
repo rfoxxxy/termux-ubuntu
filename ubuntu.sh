@@ -13,7 +13,9 @@ url="https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-c
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "downloading ubuntu-image"
-		case `dpkg --print-architecture` in
+		archh=`dpkg --print-architecture`
+		echo $archh
+		case $archh in
 		aarch64)
 			arch_type="arm64" ;;
 		arm)
