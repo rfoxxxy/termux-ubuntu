@@ -14,7 +14,6 @@ if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "downloading ubuntu-image"
 		archh=`dpkg --print-architecture`
-		echo $archh
 		case $archh in
 		aarch64)
 			arch_type="arm64" ;;
@@ -29,7 +28,9 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		curl -L "${url}${archtype}-root.tar.gz" --output $tarball
+		link="${url}${archtype}-root.tar.gz"
+		echo "downloading from ${link}"
+		curl -L $link --output $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
