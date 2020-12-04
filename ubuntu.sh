@@ -28,7 +28,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		link="${url}${archtype}-root.tar.gz"
+		link="${url}${arch_type}-root.tar.gz"
 		echo "downloading from ${link}"
 		curl -L $link --output $tarball
 	fi
